@@ -23,6 +23,11 @@ ul {
   list-style: none;
 }
 
+img.center {
+  margin: 0 auto;
+  display: block;
+}
+
 /* Navigation */
 
 header {

@@ -14,6 +14,7 @@ app.get('/', function(req, res) {
   res.render('index', {});
 });
 
-app.listen(8000, function() {
-  console.log('Listening 8000')
+var port = process.env.PORT || 8000;
+app.listen(port, function() {
+  console.log('Listening on port ' + port + ' in ' + app.get('env') + ' mode');
 });
