@@ -12,6 +12,11 @@ body {
   font-size: 1em;
   background: rgba(236, 240, 241, 1);
 }
+
+p {
+  line-height: 1.6;
+}
+
 a {
   color: rgba(204, 96, 85, 1);
   background-color: rgba(236, 240, 241, 1.0);
