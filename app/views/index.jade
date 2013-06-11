@@ -3,7 +3,7 @@ html(lang='fr')
   head
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
-    title Vélistance - Manifeste engagé pour une urbanisation durable et non-violente
+    title Vélistance - Manifeste engagé pour une urbanisation saine, durable et non-violente
     link(rel='shortcut icon', type='image/x-icon', href='/style/images/favicon.png')
 
     script(type='text/javascript')
@@ -47,12 +47,13 @@ html(lang='fr')
         .container.clearfix
           .grid_12
             h1 VELISTANCE
-            blockquote Manifeste engagé pour une urbanisation durable et non-violente
+            blockquote Manifeste engagé pour une urbanisation saine, durable et non-violente
         #content-beginning
       .slide.even(data-slide='1')
         .container.clearfix
           .grid_12
             h1 Militer
+            .anchor
             p Pour devenir vélistant, c'est très simple, il suffit de se masquer le visage lors de trajets à vélo (écharpe, foulard, masque).
             img.center('src='/images/logo.png', title='Vélistance')
             p Etre Vélistant, cela permet d'exprimer simplement, de manière visuelle et sans agressivité l'idée que la situation actuelle n'est pas acceptable. Cette démarche peut être entreprise pour les raisons suggérées ci-dessous ou non.
@@ -62,6 +63,8 @@ html(lang='fr')
         .container.clearfix
           .grid_12
             h1 Situation
+            .anchor
+            p La voiture occupe aujourd'hui une place prépondérante dans nos sociétés actuelles. Rare sont ceux qui envisagent que cette solution évolue à l'avenir. Pourtant, d'une part les méfaits de l'automobile sur notre quotidien sont nombreux et connus de tous, d'autre part il existe des solutions alternative à effort réduit à cela.
             p Il est aujourd'hui parfaitement admis au sein de nos sociétés que la voiture doit être le moyen de transport principalement utilisé et à quelques exceptions près, l'idée que cette situation n'évolue pas à l'avenir est quasi-systématiquement acquise. Or d'une part les méfaits de l'automobile sur notre quotidien sont nombreux. En voici quelques exemples en guise d'introduction.
 
               //- d'autre part, il est largement possible dans de nombreuses situations de s'organiser différemment, en amenant essentiellement à un changement de mentalité.
@@ -82,6 +85,7 @@ html(lang='fr')
         .container.clearfix
           .grid_12
             h1 Préconisations
+            .anchor
             p Voici les différentes mesures que revendique ce manifeste. L'essentiel des mesures proposées ici repose sur l'idée qu'il faut distinguer deux types de routes : les routes primaires, permettant de se rendre quelque part et les routes secondaires permettant de faire l'appoint dans sa destination. Cette distinction doit être formelle, c'est-à-dire signalisée sur la chaussée.
             ol.level1
               li
@@ -108,11 +112,12 @@ html(lang='fr')
                 ol.level2
                   li Construire de grands axes automobiles sous-terrains permettant une desserte raisonnable de toute la ville, à l'image des stations de métro.
                   li Transiter de manière parfaitement fluide avec les hubs des transports en commun, une fois garé dans un parking sous-terrain.
-                  li Ne laisser sur terre que les bus, les véhicules publics (police, ambulance etc.), et certains taxis pour lesquelles il faut une autorisation spéciale pour pouvoir les emprunter (ex: carte handicapé). Ces véhicules partages la chaussée public avec tous les autres non-motorisés, limités à 30km/h comme partout "sur terre". Seule la situation d'urgence notifiée par une discrète sirène contourne cette règle.
+                  li Ne laisser sur terre que des bus, les véhicules publics (police, ambulance etc.), et certains taxis pour lesquelles il faut une autorisation spéciale pour pouvoir les emprunter (ex: carte handicapé). Ces véhicules partagent la chaussée public avec tous les autres non-motorisés, limités à 30km/h comme partout "sur terre". Seule les situations d'urgence notifiées par une discrète sirène dérogent à cette règle.
       .slide.odd(data-slide='4')
         .container.clearfix
           .grid_12
             h1 Liens
+            .anchor
             table
               tr
                 td
@@ -138,8 +143,9 @@ html(lang='fr')
         .container.clearfix
           .grid_12
             h1 Participer
+            .anchor
             p N'hésitez pas à soutenir le mouvement en partageant cette page, en envoyant une photo de vélistant ou encore en laissant un commentaire ci-dessous.
-          .grid_4
+          .grid_3
             h3 Partager
             ul
               li
@@ -148,17 +154,23 @@ html(lang='fr')
               li
                 p Sur Twitter :
                 a.twitter-share-button(href='https://twitter.com/share', data-lang='fr', data-size='large') Tweeter
-          .grid_4
+          .grid_3
             h3 Contacter
             p.center N'hésitez surtout à envoyer un message de soutient à 
               a(href="mailto:velistance@gmail.com") velistance@gmail.com
-          .grid_4.omega
+          .grid_6.omega
             h3 Envoyer une photo
-            p.center Déposez votre photo sur 
+            p.center Déposez votre photo le web (ex: sur 
+              a(href='http://www.facebook.com/', target='_blank') Facebook
+              | , 
               a(href='http://www.flickr.com/', target='_blank') Flickr
-              |  et collez le lien de la photo ici.
+              |  ou sur 
+              a(href='http://tinypic.com/', target='_blank') Tinypic
+              | ), faites un 
+              i 'clic droit' 
+              |  sur la photo puis 'Copier l'URL de l'image' et collez-là ici :
             form
-              input.url(type='text', placeholder='ex: http://farm9.staticflickr.com/8306/7856635672_cefdd93bd1_b.jpg', name='url')
+              input.url(type='text', placeholder='ex: http://i39.tinypic.com/il90e9.jpg', name='url')
               p.center
                 input(type='submit', value='Envoyer')
               .notice

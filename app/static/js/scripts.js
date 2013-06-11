@@ -24,14 +24,23 @@ jQuery(document).ready(function ($) {
   $.getJSON('/photos', function(data) {
     photos = data;
 
+    photosArray = [];
+
+    $.each(photos, function(i, photo) {
+      photosArray.push(photo.url);
+    });
+
     var getPhoto = probaPhotos();
+
+    var bs = $.backstretch(photosArray, {fade: 2000}).pause();
 
     function changePhoto() {
       setTimeout(changePhoto, 8000);
-      var photo = photos[getPhoto()];
+      var photoNb = getPhoto();
+      var photo = photos[photoNb];
       $('#count').html(photo.love);
-      $('#love').attr('data-url', photo.url);
-      $('#flag').attr('data-url', photo.url);
+      $('#love').data('url', photo.url);
+      $('#flag').data('url', photo.url);
       if (!photo.loved) {
         $('#love').removeClass('done');
       } else {
@@ -42,7 +51,7 @@ jQuery(document).ready(function ($) {
       } else {
         $('#flag').addClass('done');
       }
-      return $.backstretch(photo.url, {fade: 2000});
+      return bs.show(photoNb);
     }
     changePhoto();
   });
@@ -60,10 +69,16 @@ jQuery(document).ready(function ($) {
         url: '/photos',
         data: $(this).serialize(),
         success: function(data) {
+          console.log(data);
           notice.html('Lien envoyé avec succès');
         },
         error: function(err) {
-          notice.html('Une erreur est survenue. Merci de réessayer');
+          console.log(err);
+          if(err.status === 406) {
+            notice.html('L\'URL n\'a pas le bon format. Il ne s\'agit pas d\'une image.');
+          } else {
+            notice.html('Une erreur est survenue. Merci de réessayer');
+          }
         }
       });
 
@@ -76,7 +91,7 @@ jQuery(document).ready(function ($) {
     var that = $(this)
 
     for (var i=0; i<photos.length; i++) {
-      if (photos[i].url == that.attr('data-url')) {
+      if (photos[i].url == that.data('url')) {
         photo = photos[i];
         break;
       }
@@ -88,7 +103,7 @@ jQuery(document).ready(function ($) {
       $.ajax({
         type: 'POST',
         url: '/love',
-        data: 'url='+that.attr('data-url'),
+        data: 'url='+that.data('url'),
         success: function(data) {
           that.removeClass('current');
           that.addClass('done');
@@ -130,12 +145,14 @@ jQuery(document).ready(function ($) {
     }
   });
 
-  $('#title').animate({
-    'margin-top': $(window).height()*0.5 - $('#title').height()/2,
-    'margin-bottom': $(window).height()*0.5
-  });
+  setTimeout(function() {
+    $('#title').animate({
+      'margin-top': $(window).height()*0.5 - $('#title').height()/2,
+      'margin-bottom': $(window).height()*0.5
+    });
+  }, 1000);
 
-  $('#content-beginning').waypoint(function(event, direction) {
+  $('#content-beginning').waypoint(function(direction) {
     if (direction === 'down') {
       $('header').animate({
         top: 0
@@ -147,18 +164,23 @@ jQuery(document).ready(function ($) {
     }
   });
 
-  $('.slide').waypoint(function (event, direction) {
-    dataslide = $(this).attr('data-slide');
-    console.log(dataslide, ' triggered');
-
+  $('.slide').find('.anchor').waypoint(function (direction) {
+    dataslide = $(this).parents('.slide').attr('data-slide');
     if (direction === 'down') {
-      $('.navigation li[data-slide="' + dataslide + '"]').addClass('active').prev().removeClass('active');
+      $('.navigation li').removeClass('active');
+      $('.navigation li[data-slide="' + dataslide + '"]').addClass('active');
     }
-    else {
-      $('.navigation li[data-slide="' + dataslide + '"]').addClass('active').next().removeClass('active');
+  }, {
+    offset: 250
+  }).waypoint(function (direction) {
+    if (direction === 'up') {
+      dataslide = $(this).parents('.slide').attr('data-slide');
+      $('.navigation li').removeClass('active');
+      $('.navigation li[data-slide="' + dataslide + '"]').addClass('active');
     }
-
-  }, { offset: 80 });
+  }, {
+    offset: 100
+  });
 
   function goToByScroll(dataslide) {
     $('html,body').animate({
@@ -170,7 +192,6 @@ jQuery(document).ready(function ($) {
     e.preventDefault();
     dataslide = $(this).attr('data-slide');
     goToByScroll(dataslide);
-
   });
 
 });

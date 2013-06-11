@@ -2,6 +2,8 @@ var express = require('express');
 var app = express();
 var nodemailer = require("nodemailer");
 var fs = require('fs');
+var mime = require('mime');
+
 
 var photosFile = __dirname + '/app/data/photos.json';
 
@@ -26,14 +28,20 @@ app.get('/photos', function(req, res) {
 });
 
 app.post('/photos', function(req, res) {
-  openFileForModif(function(photos) {
-    photos.push({
-      url: req.body.url,
-      love: 1,
-      flag: 0
+
+  if (mime.lookup(req.body.url).indexOf('image/') >= 0) {
+    openFileForModif(req, res, function(photos) {
+      photos.push({
+        url: req.body.url,
+        love: 1,
+        flag: 0
+      });
+      return photos;
     });
-    return photos;
-  });
+  } else {
+    res.writeHead(406, { 'Content-Type': 'application/json' });
+    res.end('{"text": "L\'URL n\'a pas le bon format. Il ne s\'agit pas d\'une image."}');
+  }
 });
 
 app.post('/love', function(req, res) {
@@ -87,8 +95,8 @@ var openFileForModif = function(req, res, modif) {
       if (err) {
         return console.log('Error: ' + err);
       }
-      res.setHeader('Content-Type','application/json');
-      res.end('{"status": 200, "text": "Successfull"}');
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      return res.end('{"text": "Successfull"}');
     });
 
   });
