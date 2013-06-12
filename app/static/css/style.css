@@ -13,7 +13,7 @@ body {
   background: rgba(236, 240, 241, 1);
 }
 
-p {
+p, ul, ol {
   line-height: 1.6;
 }
 
@@ -30,7 +30,11 @@ a:hover {
 }
 
 ul {
-  list-style: none;
+  list-style: square;
+}
+
+li {
+  padding-top: 5px;
 }
 
 img.center {
@@ -40,6 +44,11 @@ img.center {
 
 p.center {
   text-align: center;
+}
+
+p.strong {
+  font-weight: 600;
+  font-size: 1.1em;
 }
 
 table tr {
@@ -54,7 +63,7 @@ table tr td {
 
 header {
   position:fixed;
-  top:-80px;
+  top:-100px;
   height: auto;
   background: rgba(236, 240, 241, 1);
   z-index:100;
@@ -77,17 +86,21 @@ header h3 {
   text-align: center;
 }
 
+.innerLink {
+  cursor: pointer;
+}
+
 .navigation{
   float: right;
   list-style: none;
   margin: 0;
+  line-height: 50px;
 }
 .navigation li{
   float: left;
   padding:0 50px 0 0;
 }
 .navigation li:hover{
-  cursor:pointer;
   color: rgb(231, 76, 60);
 }
 
@@ -119,22 +132,19 @@ header h3 {
 #title blockquote:before {
   content: "«";
   padding: 3px;
-  font-size: 1.5em;
-  margin-top: -1px;
 }
 
 #title blockquote:after {
   padding: 3px;
-  font-size: 1.5em;
   content: "»";
 }
 
 ol.level1 {
-  font-size: 1.4em;
+  font-size: 1.2em;
 }
 
-ol.level2 {
-  font-size: 0.7em;
+ul.level2 {
+  font-size: 0.8em;
 }
 
 /* General Slides */
@@ -145,14 +155,29 @@ ol.level2 {
   padding:50px 0;
 }
 
+.li-title {
+  font-size: 1.1em;
+  padding: 0 3px;
+}
+
 .odd {
   background: rgba(236, 240, 241, 0.8);
   color: rgb(52, 73, 94);
 }
 
+.odd .li-title {
+  color: rgb(236, 240, 241);
+  background: rgba(52, 73, 94, 1);
+}
+
 .even {
   color: rgb(236, 240, 241);
   background: rgba(52, 73, 94,0.8);
+}
+
+.even .li-title {
+  background: rgba(236, 240, 241, 1);
+  color: rgb(52, 73, 94);
 }
 
 .slide h1 {
@@ -178,10 +203,18 @@ input[type="submit"] {
   border: none;
 }
 
+.social {
+  position: fixed;
+  bottom: 36px;
+  right: 3px;
+  text-align: center;
+}
+
 .voting {
   position: fixed;
   bottom: 0;
   right: 0;
+  z-index: 100;
 }
 
 .voting .block {
@@ -213,71 +246,80 @@ input[type="submit"] {
 /* Tablet */
 @media screen and (max-width: 1024px) {
 
-  #logo {
-    width: 100%;
-    text-align: center;
-  }
-
-  #nav {
-    width:100%;
-    text-align:center;
-    margin:10px 0;
-  }
-
-  .navigation{
-    width: 100%;
-    float: center;
-    list-style: none;
-    margin: 0;
-    padding:0;
-  }
-
   .navigation li{
-    float: left;
-    width:25%;
-    padding:0;
+    padding:0 20px 0 0;
   }
 
-  .slide{
-    background-attachment: fixed;
-    width:100%;
-    position: relative;
-    padding:150px 0;
+  .voting .block {
+    float: none;
   }
 
 }
+@media screen and (max-width: 768px) {
 
-/* Mobile */
-@media screen and (max-width: 480px) {
+  #title h1 {
+    font-size: 4em;
+  }
 
-  #logo {
-    width: 100%;
+  h3 {
     text-align: center;
   }
 
-  #nav {
-    width:100%;
-    margin:5px 0;
+  .navigation {
+    text-align: center;
+    width: 100%;
+  }
+  .navigation li{
+    display: inline-block;
+    padding: 0 10px;
+    line-height: 3;
   }
 
-  .navigation{
-    width: 100%;
-    float: left;
-    list-style: none;
-    margin: 0;
-    padding:0;
+  header h3 {
+    font-size: 40px;
+  }
+
+  .social {
+    display: none;
+  }
+
+}
+@media screen and (max-width: 480px) {
+  body {
+    font-size: 0.9em;
+    text-align: center;
+  }
+
+  #title h1 {
+    font-size: 2.5em;
+  }
+
+  .slide h1 {
+    font-size: 2em;
+  }
+
+  ul, ol {
+    text-align: left;
   }
 
   .navigation li{
-    float: left;
-    width:25%;
+    padding: 0 5px;
+    font-size: 0.7em;
   }
 
-  .slide{
-    background-attachment: fixed;
-    width:100%;
-    position: relative;
-    padding:150px 0;
+  .slide {
+    padding: 20px;
   }
 
+  .voting {
+    display: none;
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 320px) {
+
+  body {
+    /*font-size: 0.7em;*/
+  }
 }

@@ -159,7 +159,7 @@ jQuery(document).ready(function ($) {
       });
     } else {
       $('header').animate({
-        top: -80
+        top: -100
       });
     }
   });
@@ -183,9 +183,15 @@ jQuery(document).ready(function ($) {
   });
 
   function goToByScroll(dataslide) {
-    $('html,body').animate({
-      scrollTop: $('.slide[data-slide="' + dataslide + '"]').offset().top-60
-    }, 2000, 'easeInOutQuint');
+    if(dataslide == 0) {
+      return $('html,body').animate({
+        scrollTop: 0
+      }, 2000, 'easeInOutQuint');
+    } else {
+      return $('html,body').animate({
+        scrollTop: $('.slide[data-slide="' + dataslide + '"]').offset().top-60
+      }, 2000, 'easeInOutQuint');
+    }
   }
 
   $('.innerLink').click(function (e) {

@@ -4,7 +4,7 @@ html(lang='fr')
     meta(charset='UTF-8')
     meta(name='viewport', content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no')
     title Vélistance - Manifeste engagé pour une urbanisation saine, durable et non-violente
-    link(rel='shortcut icon', type='image/x-icon', href='/style/images/favicon.png')
+    link(rel='shortcut icon', type='image/x-icon', href='/images/favicon.ico')
 
     script(type='text/javascript')
         WebFontConfig = {
@@ -27,25 +27,27 @@ html(lang='fr')
   body
     #fb-root
     header.container.clearfix
-      .grid_2.no-margin
-        h3 VELISTANCE
-      .grid_10.no-margin.omega
+      .grid_3.no-margin
+        h3.innerLink(data-slide='0') VELISTANCE
+      .grid_9.no-margin.omega
         ul.navigation
           li.innerLink(data-slide='1') Militer
           li.innerLink(data-slide='2') Situation
           li.innerLink(data-slide='3') Préconisations
           li.innerLink(data-slide='4') Liens
           li.innerLink(data-slide='5') Participer
+    //- .social
+        .fb-like(data-href='http://velistance.fr', data-send='false', data-layout='box_count', data-font='arial')
     .voting
-      #count.block(title='personnes ont aimé cette photo')
-      #love.block
-        img(src='/images/love.png', alt='Love', title='J\'aime cette photo')
-      #flag.block
-        img(src='/images/flag.png', alt='Report', title='Cette photo n\'a rien à faire ici')
+      #count.block(title=' personnes ont aimé cette photo')
+      #love.block(title="J\'aime cette photo")
+        img(src='/images/love.png', alt='Love')
+      #flag.block(title="Cette photo n\'a rien à faire ici")
+        img(src='/images/flag.png', alt='Report')
     .container
-      #title
+      #title(data-slide='0')
         .container.clearfix
-          .grid_12
+          .grid_12.innerLink(data-slide='1')
             h1 VELISTANCE
             blockquote Manifeste engagé pour une urbanisation saine, durable et non-violente
         #content-beginning
@@ -64,52 +66,90 @@ html(lang='fr')
           .grid_12
             h1 Situation
             .anchor
-            p La voiture occupe aujourd'hui une place prépondérante dans nos sociétés actuelles. Rare sont ceux qui envisagent que cette solution évolue à l'avenir. Pourtant, d'une part les méfaits de l'automobile sur notre quotidien sont nombreux et connus de tous, d'autre part il existe des solutions alternative à effort réduit à cela.
-            p Il est aujourd'hui parfaitement admis au sein de nos sociétés que la voiture doit être le moyen de transport principalement utilisé et à quelques exceptions près, l'idée que cette situation n'évolue pas à l'avenir est quasi-systématiquement acquise. Or d'une part les méfaits de l'automobile sur notre quotidien sont nombreux. En voici quelques exemples en guise d'introduction.
+            p La voiture occupe aujourd'hui une place prépondérante dans nos sociétés actuelles. Rares sont ceux qui envisagent que cette solution évolue à l'avenir. Pourtant, la situation actuelle n'est pas supportable à tous les points de vue.
 
-              //- d'autre part, il est largement possible dans de nombreuses situations de s'organiser différemment, en amenant essentiellement à un changement de mentalité.
+            h3 La voiture c'est bien
+            p Personne ne peut nier que la voiture a des qualités que d'autres moyens de transport urbains n'équivalent pas. Et ce serait se voiler la face que de ne pas chercher à comprendre ce qui lui vaut un tel succès. Il me semble qu'un automobiliste prend son véhicule principalement pour trois raisons :
+            ul
+              li
+                span.li-title Rapidité
+                |  : la voiture parcourt en peu de temps des distances que le cycliste ou le piétons ne sont pas capables d'égaler.
+              li
+                span.li-title Flexibilité
+                |  : avec une voiture, finies les 10 minutes d'attente du prochain bus ou le retour anticipé avec le dernier train, sans parler des 15 minutes pour arriver à la gare, à supposer que la personne soit valide.
+              li
+                span.li-title Confort
+                |  : certainement plus controversé, certains apprécient s'enfermer dans leur véhicule à écouter l'issue des bouchons à la radio, mais on leur donne tout de suite moins tort lorsqu'il pleut à torrent par 3°C au coeur de l'hiver.
 
-            h3 Pollution &amp; Durabilité
-            p L'épuisement des ressources en pétrole prochain ne fait désormais plus aucun doute. Il n'est pas raisonnable de poursuivre une utilisation aussi intensive de l'automobile dans ce contexte, tout particulièrement lorsque celle-ci est utilisée dans une situation de 
-              i confort 
-              | et non de réelle utilité de production.
-            p Par ailleurs, il est parfaitement insupportable que la pollution résultant de l'utilisation de la voiture soit immédiatement inhallée par les piétons et les cyclistes qui ont pour autant opté pour un moyen de transport responsable, tandis que le conducteur peut tranquillement se rafraichir avec sa climatisation.
+            h3 Pourtant la voiture c'est mal
+            p Mais c'est sans compter tous les méfaits qu'apportent l'omniprésence des voitures dans nos villes.
+            ul
+              li
+                span.li-title Individualisme
+                |  : à l'exception de quelques initiatives comme le 
+                a(href='http://www.covoiturage.fr/', target='_blank') covoiturage
+                | , la voiture est le contre-exemple des 
+                a(href='http://consocollaborative.com/', target='_blank') économies collaboratives
+                | , étant par nature un isolant social.
+              li
+                span.li-title Bruit
+                |  : une ville serait tellement plus paisible sans les bruits de moteurs et de klaxons incessants. On pourrait alors discuter le long d'un boulevard, s'interpeller de l'autre côté de la rue ou tout simplement être moins à bout de nerf.
+              li
+                span.li-title Danger
+                |  : à quoi bon prendre le risque d'avoir des accidents de voiture ?
+              li
+                span.li-title Espace public
+                |  : difficile d'accepter que les 3/4 de la chaussée public soient réservés à l'usage de la voiture alors que les espaces urbains étouffent de plus en plus.
+              li
+                span.li-title Santé publique
+                |  : non seulement l'air de nos villes est largement pollué par les 
+                a(href='http://carfree.free.fr/index.php/2013/02/07/diesel-on-va-continuer-a-mourir/') gaz d'échappement
+                |  (et les cyclistes sont en première ligne d'inhalation), mais il est difficile de ne pas marcher l'heure quotidienne préconisée pour être en forme lorsque on utilise les transports en commun. C'est moins évident lorsqu'on est garé au pied de chez soi.
+              li
+                span.li-title Dépendance énergétique
+                |  : enfin, qu'on le veuille ou non, il va falloir apprendre à vivre sans pétrole dans un futur presque imminent. Cette transition d'usage ne se fera pas du jour au lendemain, ou alors elle sera inévitablement violente.
 
-            h3 Relations sociales
-            p En outre, se déplacer en ville avec une voiture est tout-à-fait individualiste.
-
-            h3 Confort urbain
-            p Enfin, je vous propose d'imaginer une ville où le calme résiderait en l'absence de ces vombrissement de moteurs incessants. Il serait possible de discuter le long d'un boulevard, d'interpeller son ami sur le trottoir d'en face, et de réduire les stridentes alarmes des véhicules publics à un niveau sonore proche de la sonnette de vélo puisque tout le monde s'entendrait. Sans parler de la fin du klaxon, ce défouloir anti-constructif pour conducteur aigri.
-            p On manque toujours d'espace dans les zones urbaines. Plus de parcs, plus d'espaces verts. Mais quoi d'étonnant lorsque la route occupe 50% d'espace en plus des trottoirs.
+            h3 Repenser les usages de la voiture
+            p Mais tous les points qui viennent d'être énumérés résultent du fait que les voitures sont trop nombreuses, trop irrespectueuses, pas du simple fait de leur existence. Aussi ce que propose ce manifeste, c'est de prendre le problème à l'envers :
+            p.strong Comment rendre la voiture moins rapide, moins flexible et moins confortable que les moyens de transports alternatifs pour en décourager l'usage dans toute situation où il est possible de faire autrement ?
+            p C'est le sens moyen de parvenir à un réel changement d'usage et de mentalité. Préconisations...
       .slide.even(data-slide='3')
         .container.clearfix
           .grid_12
             h1 Préconisations
             .anchor
-            p Voici les différentes mesures que revendique ce manifeste. L'essentiel des mesures proposées ici repose sur l'idée qu'il faut distinguer deux types de routes : les routes primaires, permettant de se rendre quelque part et les routes secondaires permettant de faire l'appoint dans sa destination. Cette distinction doit être formelle, c'est-à-dire signalisée sur la chaussée.
+            p L'essentiel des mesures proposées ici repose sur l'idée qu'il faut distinguer deux types de routes : les routes primaires, permettant de se rendre quelque part et les routes secondaires permettant de faire l'appoint dans sa destination. Cette distinction doit être formelle, c'est-à-dire signalisée sur la chaussée.
             ol.level1
               li
-                b Immédiateté 
-                |  : Encourager la pratique du vélo et de la marche à pied pour faire évoluer les usages et les mentalités.
-                ol.level2
-                  li Les feux de circulation (invention par les automobilistes pour les automobilites : un cycliste adapte sa vitesse en fonction de son niveau d'information aux intersections) s'appliquent aux vélos et aux piétons comme des Cédez-le-passage. Sauf grand axe de circulation, obligation de réduire la vitesse des voitures à 30km/h même si le feu est vert. Sur les grands axes, installation de passage sous-terrain ou de passerelle pour les piétons (pas de passage clouté).
-                  li Les sens interdits ne s'appliquent jamais aux vélos qui ont toujours la place de circuler dans les deux sens.
-                  li Créer de grands axes cyclables couverts (la pluie un principal frein à l'utilisation du vélo) mais ouverts.
+                span.li-title Immédiateté
+                |   : Encourager la pratique du vélo et de la marche à pied pour faire évoluer les usages et les mentalités.
+                ul.level2
+                  li Les feux de circulation (invention par les automobilistes pour les automobilites : un cycliste adapte sa vitesse en fonction de son niveau d'information aux intersections) s'appliquent aux vélos et aux piétons comme des Cédez-le-passage. Sauf grand axe de circulation (route primaire), obligation de réduire la vitesse des voitures à 30km/h même si le feu est vert. Sur les grands axes, installation de passage sous-terrain ou de passerelle pour les piétons (pas de passage clouté).
+                  li Les sens interdits ne s'appliquent jamais aux vélos qui ont toujours la place de circuler dans les deux sens : c'est la voiture qui est trop grosse. Cf. 
+                    a(href='http://www.bizimugi.eu/fr/bizi-amenagera-un-double-sens-cyclable-rue-mazagran-a-biarritz/', target='_blank') Carfree
+                  li Créer de grands axes cyclables couverts (la pluie un principal frein à l'utilisation quotidienne du vélo) mais ouverts.
                   li Sanctionner sévèrement l'utilisation du klaxon à mauvais escient.
+                  li Sanctionner sévèrement les stationnements sur voies cyclables. Cf. 
+                    a(href='http://carfree.free.fr/documents/partagez-la-rue.JPG', target='_blank') cette image
               li
-                b Anticipation 
-                | : Faire que la voiture ne devienne qu'une solution de replis si aucune alternative n'est possible.
-                ol.level2
+                span.li-title Anticipation
+                |  : Faire que la voiture ne devienne qu'une solution de replis si aucune alternative n'est possible.
+                ul.level2
                   li Limiter la vitesse à 30km/h sur toutes les rues secondaires, et 
                     b appliquer 
-                    | cette mesure.
+                    | cette mesure. Cf. 
+                    a(href='http://ville30.org/2013/04/13/depliant-ville-30-concept-et-arguments-en-2-pages/', target='_blank') Ville30
                   li Créer des parkings aux sorties des villes, immédiatement reliés aux stations de transport en commun pour accéder simplement en ville une fois le véhicule garé.
                   li Interdire progressivement de se garer dans les rues secondaires.
                   li Interdire aux voiture l'accès aux rues secondaires le week-end
-              li 
-                b Utopie 
-                | : Repenser la ville pour en isoler la voiture en la mettant sous-terre
-                ol.level2
+                  li Laisser l'industrie automobile être démunie face à la crise sans subventions étatiques : pour une fois que 
+                    i la main invisible du marché
+                    | agit positivement. Cf. 
+                    a(href='http://velomaxou.com/2013/01/17/la-voiture-a-lepreuve-de-la-crise/', target='_blank') Velomaxou
+              li
+                span.li-title Utopie
+                |  : Repenser la ville pour en isoler la voiture en la mettant sous-terre
+                ul.level2
                   li Construire de grands axes automobiles sous-terrains permettant une desserte raisonnable de toute la ville, à l'image des stations de métro.
                   li Transiter de manière parfaitement fluide avec les hubs des transports en commun, une fois garé dans un parking sous-terrain.
                   li Ne laisser sur terre que des bus, les véhicules publics (police, ambulance etc.), et certains taxis pour lesquelles il faut une autorisation spéciale pour pouvoir les emprunter (ex: carte handicapé). Ces véhicules partagent la chaussée public avec tous les autres non-motorisés, limités à 30km/h comme partout "sur terre". Seule les situations d'urgence notifiées par une discrète sirène dérogent à cette règle.
@@ -150,7 +190,7 @@ html(lang='fr')
             ul
               li
                 p Sur Facebook :
-                .fb-like(data-href='http://velistance.herokuapp.com', data-send='true', data-layout='button_count', data-show-faces='true', data-font='arial')
+                .fb-like(data-href='http://velistance.fr', data-send='true', data-layout='button_count', data-show-faces='true', data-font='arial')
               li
                 p Sur Twitter :
                 a.twitter-share-button(href='https://twitter.com/share', data-lang='fr', data-size='large') Tweeter
